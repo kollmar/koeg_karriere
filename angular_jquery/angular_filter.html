@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Filter CSS - Angular-Material</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+	<link rel="stylesheet" type="text/css" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.0.6-master-ba130f2/angular-material.css">
+	<!-- <link rel="stylesheet" type="text/css" href="https://material.angularjs.org/1.0.6-master-ba130f2/docs.css"> -->
+	<style type="text/css" >
+		.checkboxdemoSyncing .checkboxDemo1 div {
+  clear: both; }
+
+.checkboxdemoSyncing legend {
+  color: #3F51B5; }
+
+.checkboxdemoSyncing legend code {
+  color: #3F51B5;
+  font-weight: normal; }
+
+.checkboxdemoSyncing p {
+  padding-left: 8px; }
+
+.checkboxdemoSyncing .info {
+  padding-left: 13px; }
+
+.checkboxdemoSyncing div.standard {
+  padding: 8px;
+  padding-left: 15px; }
+
+.checkboxdemoSyncing fieldset.standard {
+  border-style: solid;
+  border-width: 1px;
+  height: 100%; }
+
+
+/*
+Copyright 2016 Google Inc. All Rights Reserved. 
+Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at http://material.angularjs.org/license.
+*/
+	</style>
+</head>
+<body>
+	<div ng-controller="AppCtrl" class="md-padding checkboxdemoSyncing" ng-cloak="" style="min-height:270px" ng-app="MyApp">
+  <div layout="row" layout-wrap="">
+
+    <div flex="100" flex-gt-sm="50" layout="column">
+      <div>
+        <!--
+          In IE, we cannot apply flex directly to <fieldset>
+          @see https://github.com/philipwalton/flexbugs#9-some-html-elements-cant-be-flex-containers
+        -->
+        <fieldset class="standard">
+          <legend>Using <md-checkbox> with <ng-checked> </legend>
+          <div layout="row" layout-wrap="" flex="">
+            <div flex="50" ng-repeat="item in items">
+              <md-checkbox ng-checked="exists(item, selected)" ng-click="toggle(item, selected)">
+                {{ item }} <span ng-if="exists(item, selected)">selected</span>
+              </md-checkbox>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+    <div flex="100" flex-gt-sm="50" layout="column">
+      <div>
+        <fieldset class="standard">
+          <legend>Using <input type="checkbox"></legend>
+          <div layout="row" layout-wrap="" flex="">
+            <div ng-repeat="item in items" class="standard" flex="50">
+              <label>
+                <input type="checkbox" ng-checked="exists(item, selected)" ng-click="toggle(item, selected)">
+                {{ item }}
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+    <div flex="100">
+      <h2 class="md-title">Selected Items</h2>
+      <code style="display: block; padding: 8px;">{{selected | json}}</code>
+    </div>
+  </div>
+
+
+</div>
+
+<!--
+Copyright 2016 Google Inc. All Rights Reserved. 
+Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at http://material.angularjs.org/license.
+-->
+</body>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+<script type="text/javascript" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js"></script>
+<script type="text/javascript" src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.0.6-master-ba130f2/angular-material.js"></script>
+
+<script type="text/javascript">
+	
+angular.module('MyApp',['ngMaterial', 'ngMessages', 'material.svgAssetsCache'])
+
+.controller('AppCtrl', function($scope) {
+
+    $scope.items = [1,2,3,4,5];
+      $scope.selected = [];
+
+      $scope.toggle = function (item, list) {
+        var idx = list.indexOf(item);
+        if (idx > -1) list.splice(idx, 1);
+        else list.push(item);
+      };
+
+      $scope.exists = function (item, list) {
+        return list.indexOf(item) > -1;
+      };
+});
+
+
+/**
+Copyright 2016 Google Inc. All Rights Reserved. 
+Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at http://material.angularjs.org/license.
+**/
+
+</script>
+</html>

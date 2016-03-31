@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>MIX PHP / Angular</title>
+	<link rel="stylesheet" href="">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+	<link rel="stylesheet" type="text/css" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.0.6-master-ba130f2/angular-material.css">
+</head>
+<body ng-app="MyApp">
+	<section ng-controller="testCtrl">		
+		<h1>{{titleUp}}</h1>
+	</section>
+	<section ng-controller="mainCtrl">
+		<p>{{phpTest}}</p>
+
+		</p>
+		<ul>
+			
+			<li ng-repeat="xmlList in details track by $index">
+				Position: {{ xmlList.position }}, Standort: {{ xmlList.location }}, Firma: {{ xmlList.company }}
+			</li>
+			
+		</ul>
+	</section>
+
+
+<!-- jQuery Library -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+
+<!-- Angular Library -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+<script type="text/javascript" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js"></script>
+<script type="text/javascript" src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.0.6-master-ba130f2/angular-material.js"></script>	
+
+	<!-- Material JS -->
+	<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.6/angular-material.min.js"></script> -->
+
+
+<!-- Converter XML 2 Json -->
+<!-- <script type="text/javascript" src="media/js/xml2json.js"></script> -->
+
+<!-- Custom - Modules -->
+	<!-- Angular -->
+		<script type="text/javascript" src="media/js/app.module.js"></script>
+		<script type="text/javascript" src="media/js/app.testCtrl.js"></script>
+		<script type="text/javascript" src="media/js/app.mainController.js"></script>
+	<!-- jQuery -->
+	<!-- <script type="text/javascript" src="media/js/app.jquery.xml.js"></script> -->
+
+<script type="text/javascript">
+	
+
+	
+
+</script>
+</body>
+</html>

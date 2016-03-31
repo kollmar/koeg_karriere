@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Angular-Test XML</title>
+	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+	<link rel="stylesheet" type="text/css" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.0.6-master-ba130f2/angular-material.css">
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.6/angular-material.min.css"> -->
+
+	<style>
+		.sortorder:after {
+		  content: '\25b2';
+		}
+		.sortorder.reverse:after {
+		  content: '\25bc';
+		}
+
+		/* 
+		*	############################################
+		*				TEST - CHECKBOX Style
+		*	############################################
+		*/
+		.checkboxdemoSyncing .checkboxDemo1 div {
+		  clear: both; }
+		.checkboxdemoSyncing legend {
+		  color: #3F51B5; }
+		.checkboxdemoSyncing legend code {
+		  color: #3F51B5;
+		  font-weight: normal; }
+		.checkboxdemoSyncing p {
+		  padding-left: 8px; }
+		.checkboxdemoSyncing .info {
+		  padding-left: 13px; }
+		.checkboxdemoSyncing div.standard {
+		  padding: 8px;
+		  padding-left: 15px; }
+		.checkboxdemoSyncing fieldset.standard {
+		  border-style: solid;
+		  border-width: 1px;
+		  height: 100%; }
+		  /*
+		  * ############################################
+		  *
+		  */
+		
+	</style>
+</head>
+<body ng-app="angularXML" ng-controller="MainCtrl">
+
+<div ng-controller="AppCtrl" class="md-padding checkboxdemoSyncing" ng-cloak="" style="min-height:270px" >
+  <div layout="row" layout-wrap="">
+	
+	<div flex="100" flex-gt-sm="50" layout="column">
+      <div>
+        <fieldset class="standard">
+          <legend>Using <input type="checkbox"></legend>
+          <div layout="row" layout-wrap="" flex="">
+            <div ng-repeat="item in items" class="standard" flex="50">
+              <label>
+                <input type="checkbox" ng-checked="exists(item, selected)" ng-click="toggle(item, selected)">
+                {{ item }}
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+    <div flex="100">
+      <h2 class="md-title">Selected Items</h2>
+      <code style="display: block; padding: 8px;">{{selected | json}}</code>
+    </div>
+  </div>
+</div>
+
+	<!-- <section>		
+		<h2>{{title}}</h2>
+			<table>	
+				<thead>
+					<tr>
+						<th>Position</th>
+						<th>Standort</th>
+						<th>Firma</th>
+					</tr>
+				</thead>
+				<tbody>				
+					<tr ng-repeat="xmlList in details | filter:filterKoeag ">
+						<td>{{ xmlList.position }}</td>
+						<td>{{ xmlList.location }}</td>
+						<td>{{ xmlList.companyname1 }}</td>
+					</tr>
+				</tbody>
+			</table>
+			<ul>
+				<li ng-repeat="filter in filters">
+					{{filter}}
+				</li>
+			</ul>
+	</section>
+	<section >
+		<h2>jQuery Table</h2>
+			<table>
+				<thead>
+					<tr>
+						<th>Position</th>
+						<th>Standort</th>
+						<th>Firma</th>
+					</tr>
+				</thead>
+				<tbody class="firma">
+				</tbody>
+			</table>
+	</section> -->
+</body>
+
+<!-- jQuery Library -->
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+
+<!-- Angular Library -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+	<!-- Material JS -->
+	<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.6/angular-material.min.js"></script> -->
+
+
+<!-- Converter XML 2 Json -->
+<script type="text/javascript" src="media/js/xml2json.js"></script>
+
+<!-- Custom - Modules -->
+	<!-- Angular -->
+	<script type="text/javascript" src="media/js/app.module.js"></script>
+	<script type="text/javascript" src="media/js/app.mainController.js"></script>
+	<script type="text/javascript" src="media/js/app.xmlTestCtrl.js"></script>
+
+	<!-- jQuery -->
+	<script type="text/javascript" src="media/js/app.jquery.xml.js"></script>
+
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+<script type="text/javascript" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js"></script>
+<script type="text/javascript" src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.0.6-master-ba130f2/angular-material.js"></script>
+
+<script type="text/javascript">
+	
+angular.module('angularXML',['ngMaterial', 'ngMessages', 'material.svgAssetsCache'])
+
+.controller('AppCtrl', function($scope) {
+
+    $scope.items = [1,2,3,4,5];
+      $scope.selected = [];
+
+      $scope.toggle = function (item, list) {
+        var idx = list.indexOf(item);
+        if (idx > -1) list.splice(idx, 1);
+        else list.push(item);
+      };
+
+      $scope.exists = function (item, list) {
+        return list.indexOf(item) > -1;
+      };
+});
+
+
+/**
+Copyright 2016 Google Inc. All Rights Reserved. 
+Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at http://material.angularjs.org/license.
+**/
+
+</script>
+</html>
