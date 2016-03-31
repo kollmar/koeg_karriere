@@ -29,14 +29,15 @@
 				<tr>
 					<th>Position</th>
 					<th>Standort</th>
-					<th>Firma</th>
+					<th>Datum</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr  ng-repeat="xmlList in details">
+				<tr ng-repeat="xmlList in details" style="border-bottom: 1px solid green">
+					<td>>>></td>
 					<td>{{ xmlList.position }}</td>
 					<td>{{ xmlList.location }}</td>
-					<td>{{ xmlList.company }}</td>
+					<td>{{ xmlList.date }}</td>
 				</tr>
 			</tbody>
 		</table>

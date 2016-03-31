@@ -22,13 +22,19 @@
 
 			$xml  = simplexml_load_file($xmlURL);
 			$array = array();
+			$date = new DateTime();
 			$i = 0;
 
 			foreach ($xml->job as $key) {
 				if ((string) $key->companyname1 == $this->koeag) {
-					$array[$i]['company']  = (string) $key->companyname1;
-					$array[$i]['location'] = (string) $key->location;
-					$array[$i]['position'] = (string) $key->position;
+
+					$date->setTimestamp((string)$key->publicationdate_unixtimestamp);
+					// $date->format('U = Y-m-d H:i:s');
+
+					// $array[$i]['date']  	= (string) $key->publicationdate_unixtimestamp;
+					$array[$i]['date']  	= $date->format('d.m.Y');
+					$array[$i]['location'] 	= (string) $key->location;
+					$array[$i]['position'] 	= (string) $key->position;
 
 					$i++;
 				}
@@ -47,7 +53,7 @@
 	}
 
 	$anzeige = new Anzeigen();
-	$anzeige->getAnzeige(true);
+	$anzeige->getAnzeige(false);
 
 	// if(isset($_GET['lokal']) == false){
 	// 	$anzeige->getAnzeige(false);
