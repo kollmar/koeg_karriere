@@ -11,7 +11,7 @@
 	<?php  
 		try {			
 			include ("test.php");
-			$anzeige = new Test(false);
+			$anzeige = new Test(true);
 
 			
 		} catch (Exception $e) {

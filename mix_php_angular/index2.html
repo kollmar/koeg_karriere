@@ -23,15 +23,23 @@
 		<p>{{phpTest}}</p>
 
 		</p>
-		<ul>
-			
-			<li ng-repeat="xmlList in details track by $index">
-				Position: {{ xmlList.position }}<br />
-				Standort: {{ xmlList.location }}<br />
-				Firma: {{ xmlList.company }}
-			</li>
-			
-		</ul>
+
+		<table>			
+			<thead>
+				<tr>
+					<th>Position</th>
+					<th>Standort</th>
+					<th>Firma</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr  ng-repeat="xmlList in details">
+					<td>{{ xmlList.position }}</td>
+					<td>{{ xmlList.location }}</td>
+					<td>{{ xmlList.company }}</td>
+				</tr>
+			</tbody>
+		</table>
 	</section>
 
 

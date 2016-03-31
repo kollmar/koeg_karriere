@@ -9,7 +9,7 @@ app.controller('mainCtrl', function($scope, $http){
     
     $http
         // .get("http://127.0.0.1/test_projekte/xml_feed/mix_php_angular/xmlFeed.php?callback")
-        .get("xmlFeed.php?"+$scope.lokal+"&callback=?")
+        .get("xmlFeed.php?callback=?")
         .success(function(response){
             $scope.details = response;
 

@@ -47,7 +47,7 @@
 	}
 
 	$anzeige = new Anzeigen();
-	$anzeige->getAnzeige(false);
+	$anzeige->getAnzeige(true);
 
 	// if(isset($_GET['lokal']) == false){
 	// 	$anzeige->getAnzeige(false);
