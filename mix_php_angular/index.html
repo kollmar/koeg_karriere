@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>MIX PHP / Angular</title>
 	<link rel="stylesheet" href="">
@@ -9,29 +10,88 @@
 	<link rel="stylesheet" type="text/css" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.0.6-master-ba130f2/angular-material.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.9.0/loading-bar.css">
 	<style type="text/css" media="screen">
+		h1.stellenangebote, h2.sub_stellen {
+			text-transform: uppercase;
+			margin-bottom: 0 !important;
+		}
+
+		h1.stellenangebote {
+			font-size: 2em !important;
+			font-weight: bold;
+		}
+		h2.sub_stellen{
+			font-size: 1.35em !important;
+			margin-top: 0 !important;
+			font-weight: normal; 
+		}
+
 		#loading-bar-spinner {
 			top: 50% !important;
 			left: 50% !important;
-		}	
+		}
+
+		md-list-item.md-2-line > .md-avatar {
+			/*display: inline-block !important;*/
+			font-size: 1.5em;
+			width: 50px;
+			position: relative;
+			margin-top: -15px !important;
+			font-weight: lighter;
+
+		}
+		md-content{
+			background: linear-gradient(-15deg, #2E7D32 0%, #81C784 63%, #A5D6A7 100%);
+			background: -moz-linear-gradient(-15deg, #2E7D32 0%, #81C784 63%, #A5D6A7 100%);
+			background: -webkit-linear-gradient(-15deg, #2E7D32 0%, #81C784 63%, #A5D6A7 100%);
+			background: -ms-linear-gradient(-15deg, #2E7D32 0%, #81C784 63%, #A5D6A7 100%);
+			background: -o-linear-gradient(-15deg, #2E7D32 0%, #81C784 63%, #A5D6A7 100%);
+
+			padding: 0 20px; 
+			color: #FFF;
+		}
+		.md-2-line {
+			margin: 15px 0;
+			border-top: 2px solid #81C784;
+		}
+		.md-list-item-text h3 {
+			font-size: 1.35em !important;
+		}
+		.md-list-item-text p {
+			font-size: 1.05em !important;
+		}
 	</style>
 </head>
 <body ng-app="MyApp">
 	<section ng-controller="testCtrl">		
 		<h1>{{titleUp}}</h1>
 	</section>
-	<section ng-controller="mainCtrl">
+	<section class="" ng-controller="mainCtrl">
 		<p>{{phpTest}}</p>
 
 		</p>
-		<ul>
-			
+		<md-content>
+		<h1 class="stellenangebote">Aktuelle Jobangebote</h1>
+		<h2 class="sub_stellen">bei der Königsteiner Agentur</h2>
+		<div flex-gt-sm="100" flex style="overflow: hidden">
+			<md-list-item class="md-2-line" ng-repeat="xmlList in details track by $index">
+				<div  class="md-avatar">
+					<p> >>> </p>
+				</div>
+	          	<!-- <img ng-src="{{todos[0].face}}?20" class="md-avatar" alt="{{todos[0].who}}" /> -->
+		          <div class="md-list-item-text" layout="column">
+		            <h3>{{ xmlList.position }}</h3>
+		            <p>{{ xmlList.location }} | {{ xmlList.date }}</p>           
+		          </div>
+		    </md-list-item>
+		</div>
+		</md-content>
+		<!-- <ul>
 			<li ng-repeat="xmlList in details track by $index">
 				Position: {{ xmlList.position }}<br />
 				Standort: {{ xmlList.location }}<br />
 				Datum: {{ xmlList.date }}
-			</li>
-			
-		</ul>
+			</li>			
+		</ul> -->
 	</section>
 
 
@@ -49,7 +109,7 @@
 <script type="text/javascript" src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.0.6-master-ba130f2/angular-material.js"></script>	
 
 	<!-- Material JS -->
-	<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.6/angular-material.min.js"></script> -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.6/angular-material.min.js"></script>
 
 
 <!-- Converter XML 2 Json -->
