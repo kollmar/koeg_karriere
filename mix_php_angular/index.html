@@ -23,12 +23,14 @@
 		<p>{{phpTest}}</p>
 
 		</p>
+		<h1>Aktuelle Jobangebote</h1>
+		<h2>Bei der Königsteiner Agentur</h2>
 		<ul>
 			
-			<li ng-repeat="xmlList in details track by $index">
-				Position: {{ xmlList.position }}<br />
-				Standort: {{ xmlList.location }}<br />
-				Datum: {{ xmlList.date }}
+			<li ng-repeat="xmlList in details track by $index" ng-click="#">
+				{{ xmlList.position }}
+				{{ xmlList.location }}
+				{{ xmlList.date }}
 			</li>
 			
 		</ul>
