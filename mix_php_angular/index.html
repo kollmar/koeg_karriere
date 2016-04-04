@@ -52,7 +52,7 @@
 		}
 		.job_content > ul {
 			list-style-type: none;
-			padding: 40;
+			padding: 0;
 		}
 
 		.job_content > ul > li {
@@ -64,28 +64,46 @@
 			position: absolute;
 			display: inline-block;
 			content: ">>>";
+			font-size: 1.3em;
+			margin-left: 5px;
 		} 
 		.stellen_content {
 			position: relative;
+			display: inline-block;
 			width: 80%;
-			margin-left: 50px;
+			margin-left: 60px;
 		}
 		.position {
-			margin: 0;
+			font-size: 1.2em;
+			margin: 0 0 5px 0;
 			font-weight: normal;
 		}
 		.position, .location_date{
 			width: 100%;
 		}
-		.location_date {
-			/*clear: left;*/
+		.location, .date, .divider {
+			font-size: 1.1em;
+			font-weight: normal;
 		}
 		.divider {
 			margin: 0 8px;
 		}
+		.md-button {
+			display: block;
+			line-height: normal;
+			margin: 0;
+			min-height: 0;
+			white-space: normal;
+			text-align: left;
+			text-transform: none; 
+			overflow: inherit;
+		}
+		[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+		  display: none !important;
+		}
 	</style>
 </head>
-<body ng-app="MyApp">
+<body ng-app="MyApp" class="ng-cloak">
 	<section ng-controller="testCtrl">		
 		<h1>{{titleUp}}</h1>
 	</section>
@@ -98,10 +116,12 @@
 			<h2>Bei der Königsteiner Agentur</h2>
 			<ul>
 				
-				<li ng-repeat="xmlList in details track by $index">
+				<li ng-repeat="xmlList in details | orderBy:'location'" class="md-button">
 					<div class="stellen_content">						
 						<h3 class="position">{{ xmlList.position }}</h3>
-						<span class="location_date">{{ xmlList.location }}<span class="divider"> | </span>{{ xmlList.date }}</span>
+						<span class="location">{{ xmlList.location }}</span>
+						<span class="divider"> | </span>
+						<span class="date">{{ xmlList.date }}</span>
 					</div>
 				</li>
 				
