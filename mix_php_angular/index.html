@@ -31,6 +31,10 @@
 			margin-top: 0;
 			font-weight: normal;
 		}
+		p {
+			margin: 0;
+		}
+
 		.job_content {
 			
 			display: block;
@@ -45,6 +49,39 @@
 			padding-top: 2.67em;
 			padding-bottom: 2.67em;
 			color: #FFF;
+		}
+		.job_content > ul {
+			list-style-type: none;
+			padding: 40;
+		}
+
+		.job_content > ul > li {
+			position: relative;			
+			border-top: 2px solid #81C784;
+			padding: 20px 0;
+		}
+		.job_content > ul > li:before {
+			position: absolute;
+			display: inline-block;
+			content: ">>>";
+		} 
+		.stellen_content {
+			position: relative;
+			width: 80%;
+			margin-left: 50px;
+		}
+		.position {
+			margin: 0;
+			font-weight: normal;
+		}
+		.position, .location_date{
+			width: 100%;
+		}
+		.location_date {
+			/*clear: left;*/
+		}
+		.divider {
+			margin: 0 8px;
 		}
 	</style>
 </head>
@@ -62,9 +99,10 @@
 			<ul>
 				
 				<li ng-repeat="xmlList in details track by $index">
-					{{ xmlList.position }}
-					{{ xmlList.location }}
-					{{ xmlList.date }}
+					<div class="stellen_content">						
+						<h3 class="position">{{ xmlList.position }}</h3>
+						<span class="location_date">{{ xmlList.location }}<span class="divider"> | </span>{{ xmlList.date }}</span>
+					</div>
 				</li>
 				
 			</ul>
