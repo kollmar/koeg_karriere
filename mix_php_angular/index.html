@@ -9,10 +9,25 @@
 	<link rel="stylesheet" type="text/css" href="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.0.6-master-ba130f2/angular-material.css">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.9.0/loading-bar.css">
 	<style type="text/css" media="screen">
+		body {
+			font-size: 100%;
+			font-size: 16px;
+		}
 		#loading-bar-spinner {
 			top: 50% !important;
 			left: 50% !important;
-		}	
+		}
+		h1.jobangebote, h2 {
+			text-transform: uppercase;
+			margin: 0 ;
+		}
+		h1.jobangebote {
+			font-size: 1.8em;
+		}
+		h2 {
+			font-size: 1.1em;
+		}
+
 	</style>
 </head>
 <body ng-app="MyApp">
@@ -23,7 +38,7 @@
 		<p>{{phpTest}}</p>
 
 		</p>
-		<h1>Aktuelle Jobangebote</h1>
+		<h1 class="jobangebote">Aktuelle Jobangebote</h1>
 		<h2>Bei der Königsteiner Agentur</h2>
 		<ul>
 			
