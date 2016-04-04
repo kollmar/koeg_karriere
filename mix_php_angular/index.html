@@ -19,15 +19,33 @@
 		}
 		h1.jobangebote, h2 {
 			text-transform: uppercase;
-			margin: 0 ;
+			
 		}
 		h1.jobangebote {
 			font-size: 1.8em;
+			-webkit-margin-before: 0;
+			-webkit-margin-after: 0;
 		}
 		h2 {
-			font-size: 1.1em;
+			font-size: 1.2em;
+			margin-top: 0;
+			font-weight: normal;
 		}
+		.job_content {
+			
+			display: block;
+			background: linear-gradient(-15deg, #2E7D32 0%, #81C784 63%, #A5D6A7 100%);
+			background: -moz-linear-gradient(-15deg, #2E7D32 0%, #81C784 63%, #A5D6A7 100%);
+			background: -webkit-linear-gradient(-15deg, #2E7D32 0%, #81C784 63%, #A5D6A7 100%);
+			background: -ms-linear-gradient(-15deg, #2E7D32 0%, #81C784 63%, #A5D6A7 100%);
+			background: -o-linear-gradient(-15deg, #2E7D32 0%, #81C784 63%, #A5D6A7 100%);
 
+			padding-left: 20px; 
+			padding-right: 20px;
+			padding-top: 2.67em;
+			padding-bottom: 2.67em;
+			color: #FFF;
+		}
 	</style>
 </head>
 <body ng-app="MyApp">
@@ -38,17 +56,19 @@
 		<p>{{phpTest}}</p>
 
 		</p>
-		<h1 class="jobangebote">Aktuelle Jobangebote</h1>
-		<h2>Bei der Königsteiner Agentur</h2>
-		<ul>
-			
-			<li ng-repeat="xmlList in details track by $index" ng-click="#">
-				{{ xmlList.position }}
-				{{ xmlList.location }}
-				{{ xmlList.date }}
-			</li>
-			
-		</ul>
+		<div class="job_content">			
+			<h1 class="jobangebote">Aktuelle Jobangebote</h1>
+			<h2>Bei der Königsteiner Agentur</h2>
+			<ul>
+				
+				<li ng-repeat="xmlList in details track by $index">
+					{{ xmlList.position }}
+					{{ xmlList.location }}
+					{{ xmlList.date }}
+				</li>
+				
+			</ul>
+		</div>
 	</section>
 
 
