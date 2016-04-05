@@ -20,5 +20,10 @@ app.controller('mainCtrl', function($scope, $http){
                
         });
         
-    
+    $scope.predicate = '';
+    $scope.reverse = true;
+    $scope.order = function(predicate) {
+        $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
+        $scope.predicate = predicate;
+    };
 });
