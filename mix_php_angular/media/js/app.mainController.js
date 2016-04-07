@@ -23,7 +23,12 @@ app.controller('mainCtrl', function($scope, $http){
     $scope.predicate = '';
     $scope.reverse = true;
     $scope.order = function(predicate) {
-        $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
+        if(predicate === 'location'){
+            $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
+        }
+        else {
+            $scope.reverse = ($scope.predicate === predicate) ? !$scope.reverse : false;
+        }
         $scope.predicate = predicate;
     };
 });

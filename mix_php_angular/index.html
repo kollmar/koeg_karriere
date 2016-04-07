@@ -97,24 +97,24 @@
 			min-height: 0;
 			white-space: normal;
 			text-align: left;
-			text-transform: none; 
+			text-transform: none;
 			overflow: inherit;
-		}		
+		}
 		[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
 		  display: none !important;
 		}
 		.sortorder_location, .sortorder_date {
 			font-size: 1.5em;
 		}
-		.sortorder_location:before, .sortorder_date:before {
+		/*.sortorder_location:before, .sortorder_date:before, .arrow:before {
 			content: '\25b2';
 		}
-		.sortorder_location.reverse:before, .sortorder_date.reverse:before {
+		.sortorder_location.reverse:before, .sortorder_date.reverse:before, .arrow.reverse:before {
 			content: '\25bc';
-		}
+		}*/
 		.button_container {
 			display: none;
-		}		
+		}
 
 		/*--- Animation ---*/
 		.item.ng-move {
@@ -173,34 +173,41 @@
 				display: inline-block;
 				width: 100%; 
 				height: 50px;
+				margin-left: 25px;
 			}
 		}
 	</style>
 </head>
-<body ng-app="MyApp" class="ng-cloak">
-	<section ng-controller="testCtrl">		
+<body data-ng-app="MyApp" class="ng-cloak">
+	<section data-ng-controller="testCtrl">		
 		<h1>{{titleUp}}</h1>
 	</section>
-	<section ng-controller="mainCtrl">
+	<section data-ng-controller="mainCtrl">
 		<p>{{phpTest}}</p>
 
 		<div class="job_content">			
 			<h1 class="jobangebote">Aktuelle Jobangebote</h1>
 			<h2>Bei der Königsteiner Agentur</h2>
-				<!-- <pre class="test_vars">Sorting predicate = {{predicate}}; reverse = {{reverse}}</pre> -->
-			<ul>
+				<pre class="test_vars">Sorting predicate = {{predicate}}; reverse = {{reverse}}</pre>
 				<div class="sort_content">
 
-					<div style="float: left; width: 20%;margin-left: 57%;">
-						<button class="sortorder_location md-button" ng-click="order('location')" ng-class="{reverse:reverse}">Ort</button>
-         				<span ng-show="predicate === 'location'" ></span>						
+					<div style="float: left; width: 18.5%;margin-left: 57%; display: inline-block;">
+						<button class="sortorder_location md-button" data-ng-click="order('location')">
+	         			<i data-ng-show="predicate === 'date' || predicate === '' || predicate === 'location' && reverse">&#x25BC;</i>
+	         			<i data-ng-show="predicate === 'location' && !reverse">&#9650;</i>
+	         			Ort
+	         			</button>		
 					</div>
-					<div style="float: left; width: 20%;">
-						<button class="sortorder_date md-button" ng-click="order('date')" ng-class="{reverse:reverses}">Datum</button>
-	         			<span ng-show="predicate === 'date'" ></span>
+					<div style="float: left; width: 20%; display: inline-block;">
+						<button class="sortorder_date md-button" data-ng-click="order('date')">
+	         			<i data-ng-show="predicate === 'location' || predicate === '' || predicate === 'date' && reverse">&#x25BC;</i>
+	         			<i data-ng-show="predicate === 'date' && !reverse">&#9650;</i>
+	         			Datum
+	         			</button>
 					</div>
 				</div>
-				<li ng-repeat="xmlList in details | orderBy:predicate:reverse" class="md-button item" ng-class="{firstEl:$first}" >
+			<ul>
+				<li data-ng-repeat="xmlList in details | orderBy:predicate:reverse" class="md-button item" data-ng-class="{firstEl:$first}" >
 					<div class="stellen_content">				
 						<h3 class="position">{{ xmlList.position }}</h3>
 						<span class="location">{{ xmlList.location }}</span>
