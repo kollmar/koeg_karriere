@@ -8,7 +8,7 @@ var xmlURL 	 	= "http://stellen-online.de/index.php/jobexport.html?scope=standar
 app.controller('mainCtrl', function($scope, $http){
     
     $http
-        // .get("http://127.0.0.1/test_projekte/xml_feed/mix_php_angular/xmlFeed.php?callback")
+        // .get("http://127.0.0.1/test_projekte/xml_feed/mix_php_angular/xmlFeed.php?callback=?")
         .get("xmlFeed.php?callback=?")
         .success(function(response){
             $scope.details = response;
