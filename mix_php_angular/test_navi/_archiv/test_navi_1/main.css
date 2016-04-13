@@ -1,0 +1,73 @@
+@charset "utf-8";
+@import url("navi.css") screen;
+*,*:before,*:after{
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	margin:0; padding:0; border:0;
+	font-size:16px;
+}
+html, body {
+  overflow-x: hidden;
+  color:#333;
+  background:fff;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.site-wrap {
+  min-height: 100%;
+  min-width: 100%;
+  background: #fff; 
+  position: relative;
+  top: 0;
+  bottom: 100%;
+  left: 0;
+  z-index: 1;
+  padding: 12px;
+  background: #CCC);
+  background-size: 200%;
+}
+h1, h2, h3, p {
+  margin: 26px 0 0 0;
+  line-height:143%;
+}
+h2 {
+  color:#66b257;
+  font-size:21px;
+  font-weight:lighter;
+}
+h3 {
+  background: #66b257;
+  color:#fff;
+  text-align: center;
+  text-transform:uppercase;
+  font-size:26px;
+  font-weight:lighter;
+}
+.toclear{
+	clear:both;
+}
+.logo_koenigsteiner, .slogan{
+  max-width: 100%;
+  float:left;
+  margin: 0 0 26px 80px;
+}
+.topimage{
+  max-width: 100%;
+  height:auto;
+  margin: 0 0 26px 0;
+}
+
+
+@media screen and (max-width: 800px) {
+h3 {
+  font-size:21px;
+}
+}
+@media print {
+}
+
+@media screen and (max-width: 620px) {
+}
+@media print {
+}

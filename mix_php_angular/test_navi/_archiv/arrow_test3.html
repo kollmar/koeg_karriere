@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta charset="utf-8">
+<title>CSS arrow down</title>
+
+<style type="text/css">
+*{margin:0; padding:0;border:0;}
+html, body{
+	font-family:Arial, Helvetica, sans-serif;
+}
+.wrap{
+	max-width:1200px;
+	overflow:hidden;
+	margin:0 auto;
+}
+p, li, a{
+	font-size:16px;
+	line-height:143%;
+}
+article {
+	width: 50%;
+	float:left;
+}
+
+.desknavi {
+	width: 100%;
+	position: relative;
+	margin: 0 auto;
+	list-style: none;
+}
+.nav-item {
+	height:110px;
+	width: 25%;
+	float:left;
+	background: #fff;
+}
+.nav-item p{
+	height:73px;
+	color:#fff;
+	font-size:13px;
+	line-height:143%;
+	padding:10px;
+	display:none;
+	background: #6773b7; 
+}
+.nav-item a{
+	color:#fff;
+	text-decoration:none;
+	display: block;
+	width:100%;
+	text-align:center;
+	background: #66b257;
+	padding:35px 0;
+	font-weight:bold;
+}
+.nav-item:hover p{
+	display:block;
+}
+.nav-item:hover a {
+	display:none;
+}
+.a2, .a4 {
+	opacity:0.80;
+}
+.arrow {
+	position: relative; 
+	margin:0 auto;
+	background: transparent; 
+} 
+.arrow:after { 
+ 	content: ""; 
+	position: absolute; 
+	top:-8px; left: 190px; 
+	width: 0; height: 0; 
+	text-align:center;
+	border-top: 12px solid #66b257;
+	border-left: 30px solid transparent; 
+	border-right: 30px solid transparent; }
+	
+.nav-item:hover .arrow:after {
+	border-top: 12px solid #6773b7; 
+}
+.nav-item:hover p{
+	display:block;
+}
+
+
+
+.desksubnavi {
+	width: 50%;
+	position: relative;
+	margin: 0 auto;
+	list-style: none;
+}
+.subnav-item {
+	height:38px;
+}
+.subnav-item a{
+	color:#fff;
+	text-decoration:none;
+	display: block;
+	width:100%;
+	text-align:center;
+	background: #85C17B;
+	padding:10px 0;
+	font-weight:bold;
+	font-size:13px;
+	line-height:143%;
+}
+.subnav-item:nth-child(2n+1) a{
+	background: #66b257;
+}
+.subnav-item:nth-child(2n) .arrow:after{
+	border-top: 12px solid #85C17B;
+}
+.subnav-item a:hover{
+	background: #6773b7;
+}
+.subnav-item:hover .arrow:after{
+	border-top: 12px solid #6773b7;
+}
+.subnav-item .arrow:hover {
+	border-top: 12px solid #000; 
+}
+@media screen and (max-width: 1000px) {
+.arrow:after {
+	position: absolute; 
+	top:-8px; left: 150px; 
+}
+@media screen and (max-width: 820px) {
+.arrow:after {
+	position: absolute; 
+	top:-8px; left: 110px; 
+}
+.nav-item p{
+	font-size:12px;
+	line-height:125%;
+}
+}
+@media screen and (max-width: 670px) {
+.arrow:after {
+	position: absolute; 
+	top:-8px; left: 70px; 
+}
+}
+@media print {
+}
+</style>
+<div class="wrap">
+
+
+
+
+<ul class="desknavi">
+    <li class="nav-item">
+      <p class="a1">Hier wartet die KÖNIG&shy;STEINER Stel&shy;len&shy;börse auf Sie. Klicken Sie jetzt und in&shy;for&shy;mie&shy;ren Sie sich über pas&shy;sen&shy;de Ange&shy;bote oder Ar&shy;beits&shy;be&shy;reiche.</p>
+      <a href="#" class="a1">Jobs</a><br />
+      <span class="arrow a1"></span></li>
+    <li class="nav-item">
+    <p class="a2">Lernen Sie die KÖNIG&shy;STEINER besser kennen. Erfahren Sie, welche Werte&shy;vor&shy;stel&shy;lungen unser Handeln prägt.</p>
+    <a href="#" class="a2">Werte</a><br />
+    <span class="arrow a2"></span></li>
+    <li class="nav-item">
+      <p class="a3">Lesen Sie sich jetzt unsere Mitar&shy;beiter-&#8203;State&shy;ments durch und machen Sie sich ein Bild von den König&shy;steinern.</p>
+      <a href="#" class="a3">Charaktere</a><br />
+      <span class="arrow a3"></span></li>
+    <li class="nav-item">
+      <p class="a4">Sie sind nur noch einen Klick von unserem Königs&shy;teiner-&#8203;Kontakt-&#8203;Team ent&shy;fernt – sprechen Sie uns an!</p>
+      <a href="#" class="a4">Kontakt</a><br />
+      <span class="arrow a4"></span></li>
+</ul>
+
+<article>
+<h2>das ist h2</h2>
+<p>hier der Text 1</p>
+</article>
+
+
+
+<article>
+<h2>das ist h2</h2>
+<p>hier der Text 12</p>
+		<ul class="desksubnavi">
+		    <li class="subnav-item"><a href="#" class="a5">Vertrieb</a><br />
+      <span class="arrow"></span></li>
+		    <li class="subnav-item"><a href="#" class="a6">Kundenberatung</a><br />
+      <span class="arrow"></span></li>
+		    <li class="subnav-item"><a href="#" class="a7">Mediengestalter Print/Online</a><br />
+      <span class="arrow"></span></li>
+		    <li class="subnav-item"><a href="#" class="a8">Personalmarketing</a><br />
+      <span class="arrow"></span></li>
+		    <li class="subnav-item" style="padding-bottom:12px;"><a href="#">Azubis/Studenten</a><br />
+      <span class="arrow"></span></li>
+		</ul>
+</article>
+
+
+
+
+
+
+
+</div>
+</html>

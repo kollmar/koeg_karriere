@@ -143,7 +143,8 @@
 				display: -webkit-box;
 				display: -webkit-flex;
 				-webkit-flex-direction: row;
-				justify-content: space-around;			
+				justify-content: space-around;		
+				text-align: left;	
 			}
 			.position {
 				/* flexbox */ 
@@ -165,6 +166,11 @@
 			    -ms-flex:1;
 			    flex:1 20%;
 				margin-right: 20px;
+				-webkit-align-items: flex-start;
+				-webkit-justify-content: flex-start;
+				justify-content: flex-start;
+				-webkit-flex-shrink: 0; 
+				text-align: left;
 			}
 			.job_content > ul {
 				margin-left: 60px;
@@ -193,15 +199,15 @@
 
 					<div style="float: left; width: 18.5%;margin-left: 57%; display: inline-block;">
 						<button class="sortorder_location md-button" data-ng-click="order('location')">
-	         			<i data-ng-show="predicate === 'date' || predicate === '' || predicate === 'location' && reverse">&#x25BC;</i>
-	         			<i data-ng-show="predicate === 'location' && !reverse">&#9650;</i>
+	         			<i data-ng-show="predicate === 'date' || predicate === '' || predicate === 'location' && reverse">&#9650;</i>
+	         			<i data-ng-show="predicate === 'location' && !reverse">&#9660;</i>
 	         			Ort
 	         			</button>		
 					</div>
 					<div style="float: left; width: 20%; display: inline-block;">
 						<button class="sortorder_date md-button" data-ng-click="order('date')">
-	         			<i data-ng-show="predicate === 'location' || predicate === '' || predicate === 'date' && reverse">&#x25BC;</i>
-	         			<i data-ng-show="predicate === 'date' && !reverse">&#9650;</i>
+	         			<i data-ng-show="predicate === 'location' || predicate === '' || predicate === 'date' && reverse">&#9650;</i>
+	         			<i data-ng-show="predicate === 'date' && !reverse">&#9660;</i>
 	         			Datum
 	         			</button>
 					</div>
